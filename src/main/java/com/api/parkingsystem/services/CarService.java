@@ -20,7 +20,7 @@ public class CarService {
         return carRepository.save(carModel);
     }
 
-    public List<CarModel> findAll() {
+    /*public List<CarModel> findAll() {
         return carRepository.findAll();
-    }
+    }*/
 }

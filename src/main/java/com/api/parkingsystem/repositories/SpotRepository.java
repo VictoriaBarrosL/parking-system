@@ -8,4 +8,6 @@ import java.util.UUID;
 
 @Repository
 public interface SpotRepository extends JpaRepository<SpotModel, UUID> {
+
+    
 }

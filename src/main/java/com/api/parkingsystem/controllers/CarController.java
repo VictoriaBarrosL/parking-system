@@ -37,9 +37,9 @@ public class CarController {
        return ResponseEntity.status(HttpStatus.CREATED).body(obj);
     }
 
-    @GetMapping
+   /* @GetMapping
     public ResponseEntity<List<CarModel>> getAllCars(){
         return ResponseEntity.status(HttpStatus.OK).body(carService.findAll());
 
-    }
+    }*/
 }

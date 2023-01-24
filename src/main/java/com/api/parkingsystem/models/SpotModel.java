@@ -1,6 +1,7 @@
 package com.api.parkingsystem.models;
 
 import jakarta.persistence.*;
+import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -25,7 +26,7 @@ public class SpotModel implements Serializable {
     @Column(nullable = false, length = 30)
     private String block;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "spotModel")
     private CarModel carModel;
 
     public SpotModel(){
@@ -43,5 +44,61 @@ public class SpotModel implements Serializable {
     }
 
     public void setregistrationDate(LocalDateTime utc) {
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public String getSpotNumber() {
+        return spotNumber;
+    }
+
+    public void setSpotNumber(String spotNumber) {
+        this.spotNumber = spotNumber;
+    }
+
+    public LocalDateTime getRegistrationDate() {
+        return registrationDate;
+    }
+
+    public void setRegistrationDate(LocalDateTime registrationDate) {
+        this.registrationDate = registrationDate;
+    }
+
+    public String getResponsibleName() {
+        return responsibleName;
+    }
+
+    public void setResponsibleName(String responsibleName) {
+        this.responsibleName = responsibleName;
+    }
+
+    public String getApartment() {
+        return apartment;
+    }
+
+    public void setApartment(String apartment) {
+        this.apartment = apartment;
+    }
+
+    public String getBlock() {
+        return block;
+    }
+
+    public void setBlock(String block) {
+        this.block = block;
+    }
+
+    public CarModel getCarModel() {
+        return carModel;
+    }
+
+    public void setCarModel(CarModel carModel) {
+        this.carModel = carModel;
     }
 }
