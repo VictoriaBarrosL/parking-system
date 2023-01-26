@@ -59,14 +59,17 @@ public class SpotService {
         spotModel.setSpotNumber(dto.getSpotNumber());
         spotModel.setApartment(dto.getApartment());
         spotModel.setResponsibleName(dto.getResponsibleName());
-        /*carModel.setBrandCar(dto.getBrandCar());
+        carModel.setBrandCar(dto.getBrandCar());
         carModel.setModelCar(dto.getModelCar());
         carModel.setLicensePlate(dto.getLicensePlate());
-        carModel.setColor(dto.getColor());*/
+        carModel.setColor(dto.getColor());
 
-        //spotModel.setCarModel(carModel);
-        spotModel.setCarModel();
-        //carModel.setSpot(spotModel);
+        spotModel.setCarModel(carModel);
+        /*spotModel.getCarModel().setBrandCar(dto.getBrandCar());
+        spotModel.getCarModel().setModelCar(dto.getModelCar());
+        spotModel.getCarModel().setLicensePlate(dto.getLicensePlate());
+        spotModel.getCarModel().setColor(dto.getColor());*/
+        carModel.setSpot(spotModel);
     }
 
 
