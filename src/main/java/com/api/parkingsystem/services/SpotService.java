@@ -6,7 +6,6 @@ import com.api.parkingsystem.models.SpotModel;
 import com.api.parkingsystem.repositories.CarRepository;
 import com.api.parkingsystem.repositories.SpotRepository;
 import jakarta.transaction.Transactional;
-import org.hibernate.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +26,7 @@ public class SpotService {
 
     @Transactional
     public SpotModel save(SpotModel spotModel) {
+
         return spotRepository.save(spotModel);
     }
 
@@ -46,35 +46,13 @@ public class SpotService {
 
             spotModel = spotRepository.save(spotModel);
 
-           //carModel = carRepository.save(carModel);
-
             return new SpotDto(spotModel);
         } catch (Exception e) {
             throw new IllegalArgumentException("Error" + e.getMessage());
         }
     }
 
-    private void copyDtoToEntity(SpotDto dto, SpotModel spotModel, CarModel carModel) {
-        spotModel.setBlock(dto.getBlock());
-        spotModel.setSpotNumber(dto.getSpotNumber());
-        spotModel.setApartment(dto.getApartment());
-        spotModel.setResponsibleName(dto.getResponsibleName());
-        carModel.setBrandCar(dto.getBrandCar());
-        carModel.setModelCar(dto.getModelCar());
-        carModel.setLicensePlate(dto.getLicensePlate());
-        carModel.setColor(dto.getColor());
-
-        spotModel.setCarModel(carModel);
-        /*spotModel.getCarModel().setBrandCar(dto.getBrandCar());
-        spotModel.getCarModel().setModelCar(dto.getModelCar());
-        spotModel.getCarModel().setLicensePlate(dto.getLicensePlate());
-        spotModel.getCarModel().setColor(dto.getColor());*/
-        carModel.setSpot(spotModel);
-    }
-
-
     public List<SpotModel> findAll() {
-
         return spotRepository.findAll();
     }
 
@@ -98,5 +76,19 @@ public class SpotService {
         copyDtoToEntity(spotDto, spot, car);
         spot = spotRepository.save(spot);
         return new SpotDto(spot);
+    }
+
+    private void copyDtoToEntity(SpotDto dto, SpotModel spotModel, CarModel carModel) {
+        spotModel.setBlock(dto.getBlock());
+        spotModel.setSpotNumber(dto.getSpotNumber());
+        spotModel.setApartment(dto.getApartment());
+        spotModel.setResponsibleName(dto.getResponsibleName());
+        carModel.setBrandCar(dto.getBrandCar());
+        carModel.setModelCar(dto.getModelCar());
+        carModel.setLicensePlate(dto.getLicensePlate());
+        carModel.setColor(dto.getColor());
+
+        spotModel.setCarModel(carModel);
+        carModel.setSpot(spotModel);
     }
 }

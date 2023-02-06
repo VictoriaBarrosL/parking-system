@@ -92,7 +92,11 @@ public class CarModel implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CarModel carModel = (CarModel) o;
-        return Objects.equals(id, carModel.id) && Objects.equals(licensePlate, carModel.licensePlate) && Objects.equals(modelCar, carModel.modelCar) && Objects.equals(brandCar, carModel.brandCar) && Objects.equals(color, carModel.color) && Objects.equals(spotModel, carModel.spotModel);
+        return Objects.equals(id, carModel.id) && Objects.equals(licensePlate, carModel.licensePlate)
+                && Objects.equals(modelCar, carModel.modelCar)
+                && Objects.equals(brandCar, carModel.brandCar)
+                && Objects.equals(color, carModel.color)
+                && Objects.equals(spotModel, carModel.spotModel);
     }
 
     @Override

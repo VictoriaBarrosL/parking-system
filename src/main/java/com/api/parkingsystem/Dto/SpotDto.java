@@ -3,7 +3,6 @@ package com.api.parkingsystem.Dto;
 import com.api.parkingsystem.models.SpotModel;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
-import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -34,9 +33,7 @@ public class SpotDto {
 
     }
 
-    public SpotDto(UUID id,LocalDateTime registrationDate, String spotNumber,
-                   String responsibleName, String apartment, String block,
-                   String licensePlate, String brandCar, String modelCar, String color) {
+    public SpotDto(UUID id, LocalDateTime registrationDate, String spotNumber, String responsibleName, String apartment, String block, String licensePlate, String brandCar, String modelCar, String color) {
         this.id = id;
         this.registrationDate = registrationDate;
         this.spotNumber = spotNumber;
@@ -49,7 +46,7 @@ public class SpotDto {
         this.color = color;
     }
 
-    public SpotDto(SpotModel entity ) {
+    public SpotDto(SpotModel entity) {
         id = entity.getId();
         registrationDate = entity.getRegistrationDate();
         spotNumber = entity.getSpotNumber();
@@ -60,7 +57,6 @@ public class SpotDto {
         brandCar = entity.getCarModel().getBrandCar();
         modelCar = entity.getCarModel().getModelCar();
         color = entity.getCarModel().getColor();
-
     }
 
     public UUID getId() {
