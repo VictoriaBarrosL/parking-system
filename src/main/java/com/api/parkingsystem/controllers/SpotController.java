@@ -5,6 +5,8 @@ import com.api.parkingsystem.models.SpotModel;
 import com.api.parkingsystem.services.SpotService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -32,6 +34,11 @@ public class SpotController {
         List<SpotModel> list = spotService.findAll();
         List<SpotDto> listDto = list.stream().map(x -> new SpotDto(x)).collect(Collectors.toList());
         return ResponseEntity.ok().body(listDto);
+    }
+    @GetMapping(value = "/paged")
+    public ResponseEntity<Page<SpotDto>> findAllPaged(Pageable pageable) {
+        Page<SpotDto> page = spotService.findAllPaged(pageable);
+        return ResponseEntity.ok().body(page);
     }
 
     @GetMapping(value = "/{id}")

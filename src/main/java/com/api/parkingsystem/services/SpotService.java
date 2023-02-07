@@ -7,6 +7,8 @@ import com.api.parkingsystem.repositories.CarRepository;
 import com.api.parkingsystem.repositories.SpotRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -54,6 +56,10 @@ public class SpotService {
 
     public List<SpotModel> findAll() {
         return spotRepository.findAll();
+    }
+    public Page<SpotDto> findAllPaged(Pageable pageable) {
+        Page<SpotModel> page = spotRepository.findAll(pageable);
+        return page.map(x -> new SpotDto(x));
     }
 
     public SpotModel findById(UUID id) {
