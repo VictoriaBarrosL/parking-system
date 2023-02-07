@@ -19,7 +19,6 @@ import java.util.UUID;
 
 @Service
 public class SpotService {
-
     @Autowired
     SpotRepository spotRepository;
 

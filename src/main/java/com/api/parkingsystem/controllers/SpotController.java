@@ -48,9 +48,9 @@ public class SpotController {
     }
 
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity<Void> deleteById(@PathVariable UUID id) {
+    public ResponseEntity<String> deleteById(@PathVariable UUID id) {
         spotService.deleteById(id);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.ok().body("Parking Spot deleted successfully.");
     }
 
     @PutMapping(value = "/{id}")

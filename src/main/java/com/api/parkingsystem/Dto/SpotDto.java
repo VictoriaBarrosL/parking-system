@@ -33,7 +33,9 @@ public class SpotDto {
 
     }
 
-    public SpotDto(UUID id, LocalDateTime registrationDate, String spotNumber, String responsibleName, String apartment, String block, String licensePlate, String brandCar, String modelCar, String color) {
+    public SpotDto(UUID id, LocalDateTime registrationDate, String spotNumber,
+                   String responsibleName, String apartment, String block,
+                   String licensePlate, String brandCar, String modelCar, String color) {
         this.id = id;
         this.registrationDate = registrationDate;
         this.spotNumber = spotNumber;
