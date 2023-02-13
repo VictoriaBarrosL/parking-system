@@ -24,9 +24,9 @@ public class WebSecurityConfig {
         return http.build();
     }
 
-   /* @Bean
+    @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
-    }*/
+    }
 
 }
