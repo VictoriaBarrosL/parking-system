@@ -23,7 +23,7 @@ public class UserModel implements UserDetails, Serializable {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return this.roles;
+        return null;
     }
 
     @Override
