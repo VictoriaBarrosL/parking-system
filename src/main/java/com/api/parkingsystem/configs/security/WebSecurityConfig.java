@@ -10,6 +10,7 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableGlobalMethodSecurity(prePostEnabled = true)
+//access filters will be inside the controller
 public class WebSecurityConfig {
 
     @Bean
